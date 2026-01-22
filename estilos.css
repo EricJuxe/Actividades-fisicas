@@ -1,0 +1,219 @@
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.card-link { text-decoration: none; color: white; }
+
+.sport-card {
+    border-radius: 15px;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-height: 120px;
+    text-align: center;
+}
+
+.sport-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+}
+
+.sport-card:active {
+    transform: scale(0.98);
+}
+
+.sport-card h2 { 
+    font-weight: 800; 
+    margin: 0; 
+    letter-spacing: 0.5px;
+    font-size: clamp(1.2rem, 5vw, 2rem);
+}
+
+.sport-card .icon { 
+    font-size: 2.5rem; 
+    background: rgba(255,255,255,0.25); 
+    border-radius: 50%; 
+    width: 65px; 
+    height: 65px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* Colores Dinámicos */
+.basquet { background: linear-gradient(135deg, #FF8C00, #FFA500); }
+.futbol { background: linear-gradient(135deg, #1D976C, #93F9B9); }
+.defecto { background: linear-gradient(135deg, #606c88, #3f4c6b); }
+
+/* Imágenes responsive */
+#contenedor-imagenes img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-height: 70vh;
+}
+
+/* Variedades de colores */
+.color-1 { background: linear-gradient(45deg, #1e3c72, #2a5298); }
+.color-2 { background: linear-gradient(45deg, #e53935, #e35d5b); }
+.color-3 { background: linear-gradient(45deg, #2e7d32, #4caf50); }
+.color-4 { background: linear-gradient(45deg, #ff8f00, #ffb300); }
+.color-5 { background: linear-gradient(45deg, #6a1b9a, #8e24aa); }
+
+/* Grid de ejercicios - RESPONSIVE */
+.grid-ejercicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+    .grid-ejercicios {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-ejercicios {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-ejercicios {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 22px;
+    }
+}
+
+/* Tarjetas de ejercicios - RESPONSIVE */
+.ejercicio-card {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 576px) {
+    .ejercicio-card {
+        min-height: 150px;
+        border-radius: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .ejercicio-card {
+        min-height: 160px;
+        border-radius: 15px;
+    }
+}
+
+.ejercicio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+@media (hover: hover) {
+    .ejercicio-card:hover::before {
+        opacity: 0.9;
+    }
+}
+
+.ejercicio-contenido {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .ejercicio-contenido {
+        padding: 18px;
+    }
+}
+
+.ejercicio-card h3 {
+    margin: 0;
+    font-size: clamp(0.95rem, 4vw, 1.25rem);
+    font-weight: 700;
+    color: #333;
+    transition: color 0.3s ease;
+    line-height: 1.3;
+    word-wrap: break-word;
+}
+
+@media (hover: hover) {
+    .ejercicio-card:hover h3 {
+        color: white;
+    }
+}
+
+@media (hover: hover) {
+    .ejercicio-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.ejercicio-card:active {
+    transform: scale(0.96);
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 375px) {
+    .display-6 {
+        font-size: 1.5rem !important;
+    }
+    
+    .fs-6 {
+        font-size: 0.9rem !important;
+    }
+    
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ajustes para iPad y tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .sport-card {
+        padding: 30px 20px;
+        min-height: 140px;
+    }
+    
+    .sport-card h2 {
+        font-size: 1.5rem;
+    }
+}
