@@ -23,6 +23,13 @@ body {
     text-align: center;
 }
 
+@media (max-width: 576px) {
+    .sport-card {
+        min-height: 180px;
+        padding: 25px 20px;
+    }
+}
+
 .sport-card:hover { 
     transform: translateY(-6px); 
     box-shadow: 0 12px 32px rgba(0,0,0,0.2); 
