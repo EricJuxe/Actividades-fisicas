@@ -1,377 +1,165 @@
-body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: #f8f9fa;
-    overflow-x: hidden;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-}
-
+/* =========================
+   RESET + BASE
+========================= */
 * {
     box-sizing: border-box;
 }
 
-@media (max-width: 576px) {
-    .container-fluid {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-    }
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f2f4f8;
+    color: #222;
+    font-size: 18px;
 }
 
-.card-link { text-decoration: none; color: white; }
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.container-fluid {
+    max-width: 1200px;
+    margin: auto;
+}
 
-.sport-card {
-    border-radius: clamp(1rem, 2vw, 1.5rem);
-    padding: clamp(1.5rem, 4vw, 2rem) clamp(0.75rem, 2vw, 1.5rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0.375rem 1.25rem rgba(0,0,0,0.13);
-    min-height: clamp(180px, 35vw, 200px);
+/* =========================
+   TITULOS
+========================= */
+h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
     text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    line-height: 1.8;
 }
 
 @media (max-width: 576px) {
-    .sport-card {
-        min-height: clamp(200px, 40vw, 280px);
-        padding: clamp(2.5rem, 8vw, 3.5rem) clamp(1.5rem, 5vw, 2rem);
-        border-radius: clamp(1rem, 3vw, 1.25rem);
+    h1 {
+        font-size: 2.1rem;
     }
 }
 
-.sport-card:hover { 
-    transform: translateY(-0.375rem); 
-    box-shadow: 0 0.75rem 2rem rgba(0,0,0,0.2); 
-}
-
-.sport-card:active {
-    transform: scale(0.95);
-}
-
-.sport-card h2 { 
-    font-weight: 800; 
-    margin: 0; 
-    letter-spacing: 0.03125rem;
-    font-size: clamp(1.3rem, 5.5vw, 1.9rem);
-    line-height: 1.3;
-    white-space: normal;
-}
-
-@media (max-width: 576px) {
-    .sport-card h2 {
-        font-size: clamp(1.8rem, 8vw, 2.8rem);
-    }
-}
-
-.sport-card .icon { 
-    font-size: clamp(1.5rem, 4vw, 2.5rem); 
-    background: rgba(255,255,255,0.25); 
-    border-radius: 50%; 
-    width: clamp(3.5rem, 8vw, 4.0625rem); 
-    height: clamp(3.5rem, 8vw, 4.0625rem); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-/* Colores Dinámicos */
-.basquet { background: linear-gradient(135deg, #FF8C00, #FFA500); }
-.futbol { background: linear-gradient(135deg, #1D976C, #93F9B9); }
-.defecto { background: linear-gradient(135deg, #606c88, #3f4c6b); }
-
-/* Imágenes responsive */
-#contenedor-imagenes img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: clamp(0.875rem, 2vw, 1.25rem);
-    object-fit: contain;
-    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.16);
-    max-width: 100%;
-    max-height: 65vh;
-    margin: 0 auto;
-    transition: transform 0.3s ease;
-}
-
-#contenedor-imagenes img:hover {
-    transform: scale(1.03);
-}
-
-@media (max-width: 576px) {
-    #contenedor-imagenes img {
-        border-radius: clamp(0.75rem, 2vw, 1rem);
-        max-height: 55vh;
-        box-shadow: 0 0.375rem 1rem rgba(0,0,0,0.14);
-    }
-}
-
-@media (min-width: 768px) {
-    #contenedor-imagenes img {
-        max-height: 70vh;
-        border-radius: clamp(1rem, 2vw, 1.25rem);
-    }
-}
-
-/* Variedades de colores */
-.color-1 { background: linear-gradient(45deg, #1e3c72, #2a5298); }
-.color-2 { background: linear-gradient(45deg, #e53935, #e35d5b); }
-.color-3 { background: linear-gradient(45deg, #2e7d32, #4caf50); }
-.color-4 { background: linear-gradient(45deg, #ff8f00, #ffb300); }
-.color-5 { background: linear-gradient(45deg, #6a1b9a, #8e24aa); }
-
-/* Grid de ejercicios - RESPONSIVE */
+/* =========================
+   GRID (CLASES / ACTIVIDADES)
+========================= */
 .grid-ejercicios {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1rem, 3vw, 1.375rem);
-    margin-bottom: clamp(2.5rem, 5vw, 3.125rem);
+    grid-template-columns: 1fr; /* 🔥 UNA POR FILA EN CELULAR */
+    gap: 1.6rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
-@media (max-width: 576px) {
-    .grid-ejercicios {
-        gap: clamp(1.25rem, 4vw, 1.5rem);
-        margin-bottom: clamp(3rem, 8vw, 3.75rem);
-    }
-}
-
-@media (min-width: 576px) {
-    .grid-ejercicios {
-        grid-template-columns: repeat(2, 1fr);
-        gap: clamp(1rem, 3vw, 1.125rem);
-        margin-bottom: clamp(2.5rem, 5vw, 2.5rem);
-    }
-}
-
+/* Tablet */
 @media (min-width: 768px) {
     .grid-ejercicios {
         grid-template-columns: repeat(2, 1fr);
-        gap: clamp(1.125rem, 3vw, 1.25rem);
-        margin-bottom: clamp(3rem, 5vw, 3.125rem);
     }
 }
 
+/* Escritorio */
 @media (min-width: 1024px) {
     .grid-ejercicios {
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(1.25rem, 3vw, 1.375rem);
-        margin-bottom: clamp(3rem, 5vw, 3.125rem);
     }
 }
 
-/* Tarjetas de ejercicios - RESPONSIVE */
+/* =========================
+   TARJETAS (APP STYLE)
+========================= */
 .ejercicio-card {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    border-radius: clamp(1rem, 2vw, 1.125rem);
-    overflow: hidden;
-    box-shadow: 0 0.3125rem 1.125rem rgba(0, 0, 0, 0.14);
-    background: white;
+    position: relative;
+    border-radius: 22px;
+    padding: 2.5rem 1.5rem;
+    min-height: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: clamp(120px, 25vw, 140px);
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
 }
 
-@media (max-width: 576px) {
-    .ejercicio-card {
-        min-height: clamp(180px, 40vw, 220px);
-        border-radius: clamp(1rem, 2vw, 1.125rem);
-        box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.16);
-    }
-}
-
-@media (min-width: 576px) {
-    .ejercicio-card {
-        min-height: clamp(140px, 20vw, 160px);
-        border-radius: clamp(1rem, 2vw, 1.0625rem);
-    }
-}
-
-@media (min-width: 768px) {
-    .ejercicio-card {
-        min-height: clamp(160px, 22vw, 180px);
-        border-radius: clamp(1rem, 2vw, 1.125rem);
-        box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.15);
-    }
-}
-
-.ejercicio-card::before {
-    content: '';
+.ejercicio-card::after {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    inset: 0;
+    background: rgba(255,255,255,0.08);
     opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
+    transition: opacity .25s ease;
 }
 
-@media (hover: hover) {
-    .ejercicio-card:hover::before {
-        opacity: 0.9;
-    }
-}
-
-.ejercicio-contenido {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: clamp(1.25rem, 3vw, 1.375rem);
-    width: 100%;
-}
-
-@media (max-width: 576px) {
-    .ejercicio-contenido {
-        padding: clamp(2rem, 6vw, 2.5rem) clamp(1.25rem, 4vw, 1.5625rem);
-    }
-}
-
-@media (min-width: 576px) {
-    .ejercicio-contenido {
-        padding: clamp(1.25rem, 3vw, 1.5625rem);
-    }
-}
-
-@media (min-width: 768px) {
-    .ejercicio-contenido {
-        padding: clamp(1.5rem, 3vw, 1.75rem);
-    }
-}
-
-.ejercicio-card h3 {
-    margin: 0;
-    font-size: clamp(1.1rem, 5vw, 1.6rem);
-    font-weight: 700;
-    color: #333;
-    transition: color 0.3s ease;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-@media (max-width: 576px) {
-    .ejercicio-card h3 {
-        font-size: clamp(1.4rem, 7vw, 1.8rem);
-        font-weight: 700;
-    }
-}
-
-@media (hover: hover) {
-    .ejercicio-card:hover h3 {
-        color: white;
-    }
-}
-
-@media (hover: hover) {
+@media (hover:hover) {
     .ejercicio-card:hover {
-        transform: translateY(-0.375rem);
-        box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+        transform: translateY(-8px);
+        box-shadow: 0 28px 60px rgba(0,0,0,0.25);
+    }
+    .ejercicio-card:hover::after {
+        opacity: 1;
     }
 }
 
 .ejercicio-card:active {
-    transform: scale(0.96);
+    transform: scale(0.95);
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 375px) {
-    .display-6 {
-        font-size: clamp(1.8rem, 7vw, 2.2rem) !important;
-    }
-    
-    .fs-6 {
-        font-size: clamp(1rem, 3vw, 1.15rem) !important;
-    }
-    
-    .btn-sm {
-        padding: clamp(0.75rem, 2vw, 1.2rem) clamp(1.25rem, 3vw, 2rem);
-        font-size: clamp(1rem, 3vw, 1.3rem);
-    }
-    
-    .btn {
-        padding: clamp(0.75rem, 2vw, 1.2rem) clamp(1.25rem, 3vw, 2rem) !important;
-        font-size: clamp(1rem, 3vw, 1.3rem) !important;
-    }
+/* =========================
+   TEXTO TARJETA
+========================= */
+.ejercicio-card h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.4;
+    z-index: 1;
 }
 
-@media (max-width: 576px) {
-    .btn-sm {
-        padding: clamp(0.75rem, 2vw, 1.2rem) clamp(1.25rem, 3vw, 2rem);
-        font-size: clamp(1rem, 3vw, 1.3rem);
-    }
-    
-    .btn {
-        padding: clamp(0.75rem, 2vw, 1.2rem) clamp(1.25rem, 3vw, 2rem) !important;
-        font-size: clamp(1rem, 3vw, 1.3rem) !important;
-    }
+/* =========================
+   COLORES POR CATEGORÍA
+========================= */
+.color-1 { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+.color-2 { background: linear-gradient(135deg, #e53935, #e35d5b); }
+.color-3 { background: linear-gradient(135deg, #2e7d32, #4caf50); }
+.color-4 { background: linear-gradient(135deg, #ff8f00, #ffb300); }
+.color-5 { background: linear-gradient(135deg, #6a1b9a, #8e24aa); }
+
+/* =========================
+   BOTONES (APP)
+========================= */
+.btn {
+    border-radius: 16px !important;
+    font-size: 1.2rem !important;
+    padding: 1rem 1.8rem !important;
+    font-weight: 700;
 }
 
-/* Ajustes para iPad y tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .sport-card {
-        padding: clamp(2rem, 4vw, 2.1875rem) clamp(1rem, 2vw, 1.25rem);
-        min-height: clamp(180px, 35vw, 210px);
-    }
-    
-    .sport-card h2 {
-        font-size: clamp(1.5rem, 5vw, 1.7rem);
-    }
-}
-
-/* Tipografía mejorada para mejor legibilidad */
-body {
-    letter-spacing: 0.4px;
-}
-
-p, a, button, .btn {
-    letter-spacing: 0.01875rem;
-}
-
+/* =========================
+   DETALLE
+========================= */
 #detalle-titulo {
-    font-size: clamp(1.5rem, 6vw, 2.6rem) !important;
-}
-
-@media (max-width: 576px) {
-    #detalle-titulo {
-        font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
-        margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
-    }
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
 }
 
 #detalle-texto {
-    font-size: clamp(0.95rem, 5vw, 1.3rem) !important;
+    font-size: 1.25rem;
+    line-height: 1.9;
+    margin-bottom: 2rem;
 }
 
-@media (max-width: 576px) {
-    #detalle-texto {
-        font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
-        line-height: 1.9 !important;
-        margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
-    }
-}
-
-#titulo-deporte {
-    font-size: clamp(1.75rem, 7vw, 2.8rem) !important;
-}
-
-@media (max-width: 576px) {
-    #titulo-deporte {
-        font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
-        margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
-    }
-}
-
-/* Mejora de espaciado global */
-@media (max-width: 576px) {
-    h1, h2, h3, h4, h5, h6 {
-        margin-top: clamp(0.8rem, 3vw, 1.5rem);
-        margin-bottom: clamp(0.8rem, 3vw, 1.5rem);
-    }
-    
-    p {
-        margin-bottom: clamp(0.8rem, 3vw, 1.5rem);
-    }
+/* =========================
+   IMÁGENES
+========================= */
+#contenedor-imagenes img {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
 }
