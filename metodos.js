@@ -35,7 +35,8 @@ async function cargarMenuPrincipal() {
         let claseColor = `color-${(index % 5) + 1}`; 
         
         const col = document.createElement('div');
-        col.className = 'col-12 col-md-6 col-lg-4';
+        // CAMBIO AQUÍ: Usamos col-12 para que ocupe todo el ancho siempre
+        col.className = 'col-12'; 
         col.innerHTML = `
             <a href="categoria.html?deporte=${encodeURIComponent(dep)}" class="card-link text-decoration-none">
                 <div class="sport-card ${claseColor}">
