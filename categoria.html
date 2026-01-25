@@ -2,21 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ejercicios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
 </head>
-<body class="bg-light">
-    <div class="container-fluid px-3 px-md-4 py-5 py-md-6">
-        <a href="index.html" class="btn btn-outline-secondary mb-5 mb-md-6" style="padding: 0.85rem 1.4rem; font-size: 1.05rem;">← Volver al Inicio</a>
-        <h1 id="titulo-deporte" class="fw-bold text-uppercase mb-6 mb-md-7" style="font-size: clamp(2rem, 6.5vw, 2.8rem); letter-spacing: 0.6px;"></h1>
-        
-        <div id="lista-ejercicios" class="grid-ejercicios">
-        </div>
-    </div>
+<body>
 
-    <script src="metodos.js"></script>
-    <script>window.onload = cargarEjercicios;</script>
+<div class="container-fluid py-5">
+    <a href="index.html" class="btn btn-outline-dark mb-4">← Volver</a>
+
+    <h1 id="titulo-deporte"></h1>
+
+    <div class="grid-ejercicios" id="lista-ejercicios"></div>
+</div>
+
+<script src="metodos.js"></script>
+<script>window.onload = cargarEjercicios;</script>
 </body>
 </html>
